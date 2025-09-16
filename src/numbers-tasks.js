@@ -445,8 +445,14 @@ function getFloatOnString(/* str */) {
  * '1.234', 2           => 1
  * '10', 8              => 8
  */
-function getIntegerOnString(/* str, base */) {
-  throw new Error('Not implemented');
+function getIntegerOnString(str, base) {
+  if (typeof str !== 'string') {
+    return NaN;
+  }
+  if (base < 2 || base > 36) {
+    return NaN;
+  }
+  return Number.parseInt(str, base);
 }
 
 /**
